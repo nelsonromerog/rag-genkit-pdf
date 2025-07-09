@@ -18,19 +18,19 @@ flowchart TD
     subgraph "Flujo 1: 📚 Indexación"
         direction TB
         A["📄 Tu Documento PDF"] --> B{"Flow: indexerDocuments"};
-        B --> C["1. Extraer texto del PDF"];
-        C --> D["2. Dividir texto en trozos (Chunks)"];
-        D --> E["3. Convertir trozos en vectores (Embeddings)"];
-        E --> F[("fa:fa-database Almacén de Vectores Local")];
+        B --> C["Extraer texto del PDF"];
+        C --> D["Dividir texto en trozos (Chunks)"];
+        D --> E["Convertir trozos en vectores (Embeddings)"];
+        E --> F[("🗄️ Almacén de Vectores Local")]
     end
 
     subgraph "Flujo 2: 💬 Preguntas y Respuestas"
         direction TB
         G["❓ Tu Pregunta"] --> H{"Flow: documentQA"};
-        H --> I["1. Convertir pregunta en vector"];
-        I --> J[("fa:fa-database Almacén de Vectores Local")];
-        J --> K["2. Buscar trozos de texto relevantes"];
-        K --> L["3. Inyectar contexto en el Prompt"];
+        H --> I["Convertir pregunta en vector"];
+        I --> J[("🗄️ Almacén de Vectores Local")]
+        J --> K["Buscar trozos de texto relevantes"];
+        K --> L["Inyectar contexto en el Prompt"];
         G --> L;
         L --> M{🤖 Generar Respuesta con IA};
         M --> N["✅ Respuesta Basada en tu Documento"];
